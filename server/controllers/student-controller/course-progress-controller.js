@@ -1,6 +1,6 @@
-const CourseProgress = require("../../models/CourseProgress");
-const Course = require("../../models/Course");
-const StudentCourses = require("../../models/StudentCourses");
+const CourseProgress = require('../../models/CourseProgress');
+const Course = require('../../models/Course');
+const StudentCourses = require('../../models/StudentCourses');
 
 //mark current lecture as viewed
 const markCurrentLectureAsViewed = async (req, res) => {
@@ -44,7 +44,7 @@ const markCurrentLectureAsViewed = async (req, res) => {
     if (!course) {
       return res.status(404).json({
         success: false,
-        message: "Course not found",
+        message: 'Course not found',
       });
     }
 
@@ -62,14 +62,14 @@ const markCurrentLectureAsViewed = async (req, res) => {
 
     res.status(200).json({
       success: true,
-      message: "Lecture marked as viewed",
+      message: 'Lecture marked as viewed',
       data: progress,
     });
   } catch (error) {
     console.log(error);
     res.status(500).json({
       success: false,
-      message: "Some error occured!",
+      message: 'Some error occured!',
     });
   }
 };
@@ -92,7 +92,7 @@ const getCurrentCourseProgress = async (req, res) => {
         data: {
           isPurchased: false,
         },
-        message: "You need to purchase this course to access it.",
+        message: 'You need to purchase this course to access it.',
       });
     }
 
@@ -109,13 +109,13 @@ const getCurrentCourseProgress = async (req, res) => {
       if (!course) {
         return res.status(404).json({
           success: false,
-          message: "Course not found",
+          message: 'Course not found',
         });
       }
 
       return res.status(200).json({
         success: true,
-        message: "No progress found, you can start watching the course",
+        message: 'No progress found, you can start watching the course',
         data: {
           courseDetails: course,
           progress: [],
@@ -140,7 +140,7 @@ const getCurrentCourseProgress = async (req, res) => {
     console.log(error);
     res.status(500).json({
       success: false,
-      message: "Some error occured!",
+      message: 'Some error occurred!',
     });
   }
 };
@@ -156,7 +156,7 @@ const resetCurrentCourseProgress = async (req, res) => {
     if (!progress) {
       return res.status(404).json({
         success: false,
-        message: "Progress not found!",
+        message: 'Progress not found!',
       });
     }
 
@@ -168,14 +168,14 @@ const resetCurrentCourseProgress = async (req, res) => {
 
     res.status(200).json({
       success: true,
-      message: "Course progress has been reset",
+      message: 'Course progress has been reset',
       data: progress,
     });
   } catch (error) {
     console.log(error);
     res.status(500).json({
       success: false,
-      message: "Some error occured!",
+      message: 'Some error occurred!',
     });
   }
 };
