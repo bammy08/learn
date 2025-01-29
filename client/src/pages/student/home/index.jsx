@@ -4,16 +4,16 @@ import { Button } from '@/components/ui/button';
 import { useContext, useEffect, useMemo } from 'react';
 import { StudentContext } from '@/context/student-context';
 import {
-  checkCoursePurchaseInfoService,
+  // checkCoursePurchaseInfoService,
   fetchStudentViewCourseListService,
 } from '@/services';
-import { AuthContext } from '@/context/auth-context';
+// import { AuthContext } from '@/context/auth-context';
 import { useNavigate } from 'react-router-dom';
 
 function StudentHomePage() {
   const { studentViewCoursesList, setStudentViewCoursesList } =
     useContext(StudentContext);
-  const { auth } = useContext(AuthContext);
+  // const { auth } = useContext(AuthContext);
   const navigate = useNavigate();
 
   function handleNavigateToCoursesPage(getCurrentId) {
@@ -29,18 +29,8 @@ function StudentHomePage() {
   }
 
   async function handleCourseNavigate(getCurrentCourseId) {
-    const response = await checkCoursePurchaseInfoService(
-      getCurrentCourseId,
-      auth?.user?._id
-    );
-
-    if (response?.success) {
-      if (response?.data) {
-        navigate(`/course-progress/${getCurrentCourseId}`);
-      } else {
-        navigate(`/course/details/${getCurrentCourseId}`);
-      }
-    }
+    // Navigate directly to the course details page without checking purchase status
+    navigate(`/course/details/${getCurrentCourseId}`);
   }
 
   useEffect(() => {
