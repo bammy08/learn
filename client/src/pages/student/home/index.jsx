@@ -116,10 +116,10 @@ function StudentHomePage() {
                   className="w-full h-48 object-cover"
                 />
                 <div className="p-6">
-                  <h3 className="text-xl font-semibold mb-2 text-gray-800">
+                  <h3 className="text-xl font-semibold mb-2 text-gray-800 line-clamp-2">
                     {courseItem?.title}
                   </h3>
-                  <p className="text-sm text-gray-600 mb-4">
+                  <p className="text-sm text-gray-600 mb-4 capitalize">
                     {courseItem?.instructorName}
                   </p>
                   <p className="text-lg font-bold text-blue-600">
