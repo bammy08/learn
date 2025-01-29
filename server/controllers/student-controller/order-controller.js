@@ -29,8 +29,16 @@ const createOrder = async (req, res) => {
         payment_method: 'paypal',
       },
       redirect_urls: {
-        return_url: `${process.env.CLIENT_URL}/payment-return`,
-        cancel_url: `${process.env.CLIENT_URL}/payment-cancel`,
+        return_url: `${
+          process.env.NODE_ENV === 'production'
+            ? 'https://learn-bqln.onrender.com'
+            : process.env.CLIENT_URL
+        }/payment-return`,
+        cancel_url: `${
+          process.env.NODE_ENV === 'production'
+            ? 'https://learn-bqln.onrender.com'
+            : process.env.CLIENT_URL
+        }/payment-cancel`,
       },
       transactions: [
         {
